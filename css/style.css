@@ -1,0 +1,84 @@
+@font-face {
+    font-family: sailFont;
+    src: url(../fonts/Sail-Regular.ttf);
+}
+
+@font-face {
+    font-family: trocchiFont;
+    src: url(../fonts/Trocchi-Regular.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    background-color: #594999;
+}
+
+.transition {
+    -o-transition: color 1s ease-in-out, background-color 1s ease-in-out, transform 0.5s ease-in-out;
+    -moz-transition: color 1s ease-in-out, background-color 1s ease-in-out, transform 0.5s ease-in-out;
+    -webkit-transition: color 1s ease-in-out, background-color 1s ease-in-out, transform 0.5s ease-in-out;
+    transition: color 1s ease-in-out, background-color 1s ease-in-out, transform 0.5s ease-in-out;
+}
+
+blockquote {
+    color: #594999;
+    font-family: sailFont;
+    font-size: calc(0.8em + 2vw);
+    border-left: none;
+    padding: 0;
+    margin: 1vw;
+}
+
+.fa-quote-left {
+    font-size: calc(0.8em + 1.5vw);
+}
+
+p {
+    font-family: sailFont;
+    font-size: calc(0.8em + 1.5vw);
+    margin-bottom: calc(1em + 1vw);
+    opacity: 0.6;
+}
+
+    p::before,
+    p::after {
+        content: "~";
+    }
+
+.btn {
+    padding: calc(0.2em + 0.5vw);
+    font-family: trocchiFont;
+    font-size: calc(0.4em + 1vw);
+    color: white;
+    background-color: #594999;
+    margin: 1vw;
+}
+
+    .btn:hover {
+        color: white;
+        opacity: 0.8;
+    }
+
+    .btn#right:hover {
+        -o-transform: rotate(10deg) scale(1.1);
+        -moz-transform: rotate(10deg) scale(1.1);
+        -webkit-transform: rotate(10deg) scale(1.1);
+        transform: rotate(10deg) scale(1.1);        
+    }
+
+    .btn#left:hover {
+        -o-transform: rotate(-10deg) scale(1.1);
+        -moz-transform: rotate(-10deg) scale(1.1);
+        -webkit-transform: rotate(-10deg) scale(1.1);
+        transform: rotate(-10deg) scale(1.1);
+    }
+
+div#main {
+    background-color: white;
+    margin-top: 5vw;
+    padding: calc(1em + 2vw);
+    text-align: center;
+    border-radius: 10px;
+}
