@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    //variables
     var body = $('body');
     var authorText = $('p');
     var quoteText = $('blockquote');
@@ -183,9 +184,12 @@ $(document).ready(function () {
 
     window.onload = setBoard;
 
-    $(".btn").mouseup(function () {
+    $(".btn").click(function (e) {
+        e.preventDefault();
+    }).mouseup(function () {
         $(this).blur();
     });
+
     $("#right").click(function () {
         var delay = 1000;
         quoteBoard.fadeOut(delay);
@@ -201,23 +205,39 @@ $(document).ready(function () {
     }
 
     function setRandomColor() {
-        var letters = '23456789ABCDE'.split('');
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 14)];
-        }
+        var color = new RColor;
+        var c1 = color.get(true, 0.65, 0.99);
 
-        quoteText.css('color', color);
-        body.css('background-color', color);
-        buttons.css('background-color', color);
-        quoteIcon.css('color', color);
+        quoteText.css('color', c1);
+        body.css('background-color', c1);
+        buttons.css('background-color', c1);
+        quoteIcon.css('color', c1);
     }
 
+    var iterator = 0;
+    var lastNumbers = [];
     function changeQuote() {
+
         var random;
+
         do {
+            var wasUsed = false;
+            
             random = Math.floor(Math.random() * quotes.length);
-        } while (quotes[random][0] == quoteText.html());
+
+            for (var i = 0; i < lastNumbers.length; i++) {
+                if (lastNumbers[i] == random) {
+                    wasUsed = true;
+                    break;
+                }
+            }
+
+            if (!wasUsed) {
+                lastNumbers[iterator] = random
+                iterator = iterator >= 60 ? 0 : iterator + 1;
+            }
+
+        } while (wasUsed);
 
         quoteText.html(quotes[random][0]);
         authorText.html(quotes[random][1]);
@@ -231,9 +251,9 @@ $(document).ready(function () {
     function adjustTweet(t) {
 
         if ((t.replaceAll("%3B", ";").replaceAll("%20", " ").length - 46) > 140) {
-            
+
             t = t.substr(0, t.length - 16);
-            if ((t.replaceAll("%3B", ";").replaceAll("%20", " ").length - 38) > 140) {        
+            if ((t.replaceAll("%3B", ";").replaceAll("%20", " ").length - 38) > 140) {
                 t = t.substr(0, 182);
 
                 if (t[t.length - 1] != '.' && t[t.length - 1] != '%3B' && t[t.length - 1] != '"') {
