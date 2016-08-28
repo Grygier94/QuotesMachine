@@ -179,7 +179,26 @@ $(document).ready(function () {
       ["Difficulties mastered are opportunities won.", "Winston Churchill"],
       ["This is no time for ease and comfort. It is time to dare and endure.", "Winston Churchill"],
       ["If you dwell on statistics you get shortsighted, if you aim for consistency, the numbers will be there at the end.", "Tom Seaver"],
-      ["There are only two places in the league - first place and no place.", "Tom Seaver"]
+      ["There are only two places in the league - first place and no place.", "Tom Seaver"],
+      ["The secret of getting ahead is getting started.", "Mark Twain"],
+      ["The fear of death follows from the fear of life. A man who lives fully is prepared to die at any time.", "Mark Twain"],
+      ["There are basically two types of people. People who accomplish things, and people who claim to have accomplished things. The first group is less crowded.", "Mark Twain"],
+      ["Whenever you find yourself on the side of the majority, it is time to pause and reflect.", "Mark Twain"],
+      ["The man who does not read good books has no advantage over the man who cannot read them.", "Mark Twain"],
+      ["I was seldom able to see an opportunity until it had ceased to be one.", "Mark Twain"],
+      ["The trouble with the world is not that people know too little, but that they know so many things that ain't so.", "Mark Twain"],
+      ["Life is really simple, but we insist on making it complicated.", "Confucius"],
+      ["It does not matter how slowly you go as long as you do not stop.", "Confucius"],
+      ["Everything has beauty, but not everyone sees it.", "Confucius"],
+      ["Our greatest glory is not in never falling, but in rising every time we fall.", "Confucius"],
+      ["Choose a job you love, and you will never have to work a day in your life.", "Confucius"],
+      ["I hear and I forget. I see and I remember. I do and I understand.", "Confucius"],
+      ["Success depends upon previous preparation, and without such preparation there is sure to be failure.", "Confucius"],
+      ["To know what you know and what you do not know, that is true knowledge.", "Confucius"],
+      ["When it is obvious that the goals cannot be reached, don't adjust the goals, adjust the action steps.", "Confucius"],
+      ["The superior man acts before he speaks, and afterwards speaks according to his action.", "Confucius"],
+      ["Study the past, if you would divine the future.", "Confucius"],
+      ["Knowledge without practice is useless. Practice without knowledge is dangerous.", "Confucius"]
     ];
 
     window.onload = setBoard;
@@ -222,7 +241,7 @@ $(document).ready(function () {
 
         do {
             var wasUsed = false;
-            
+
             random = Math.floor(Math.random() * quotes.length);
 
             for (var i = 0; i < lastNumbers.length; i++) {
